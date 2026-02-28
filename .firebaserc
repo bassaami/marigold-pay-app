@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "dragon-news-authen"
+  },
+  "targets": {
+    "dragon-news-authen": {
+      "hosting": {
+        "assign-9-marygold-pay": [
+          "assign-9-marygold-pay"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

@@ -16,19 +16,22 @@ const Navbar = () => {
         });
     }
 
+let btnn = "px-6 py-2 bg-amber-800 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700  active:scale-95"
+
     return (
-        <nav className="relative bg-white p-4">
+        <nav className="relative bg-base-400 p-4">
             <div className="flex items-center justify-between">
                 {/* Logo / User Info */}
-                <div className="flex-shrink-0">
+                <div className="hidden md:flex text-2xl font-bold text-amber-600">Marigold Pay</div>
+                <div className="flex-shrink-0 text-black">
                     {usser?.name}{usser?.email}
                 </div>
 
                 {/* Desktop Links (Hidden on mobile/tablet) */}
-                <div className="navv text-accent hidden md:flex gap-6">
-                    <NavLink to="/" >Home </NavLink>
-                    <NavLink to="/about" >About </NavLink>
-                    <NavLink to="/career" >Career </NavLink>
+                <div className="navv text-amber-800 hidden md:flex gap-6">
+                    <NavLink className="hover:text-blue-700" to="/" >Home </NavLink>
+                    <NavLink className="hover:text-blue-700" to="/bills" >Bills </NavLink>
+                    <NavLink className="hover:text-blue-700" to="/profile" >Profile </NavLink>
                 </div>
 
                 {/* Right Side: Auth + Mobile Toggle */}
@@ -44,8 +47,8 @@ const Navbar = () => {
                         {usser ?
                             <button
                                 onClick={handleLogOut}
-                                className='btn btn-primary px-9'>Log Out</button> :
-                            <Link to="/authen/login" className='btn btn-primary px-9'>Login</Link >
+                                className={btnn}>Log Out</button> :
+                            <Link to="/authen/login" className={btnn}>Login</Link >
                         }
                     </div>
 
@@ -69,8 +72,8 @@ const Navbar = () => {
             {isOpen && (
                 <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md z-50 flex flex-col p-4 gap-4 border-t">
                     <NavLink onClick={() => setIsOpen(false)} to="/" >Home </NavLink>
-                    <NavLink onClick={() => setIsOpen(false)} to="/about" >About </NavLink>
-                    <NavLink onClick={() => setIsOpen(false)} to="/career" >Career </NavLink>
+                    <NavLink onClick={() => setIsOpen(false)} to="/bills" >Bills </NavLink>
+                    <NavLink onClick={() => setIsOpen(false)} to="/profile" >Profile </NavLink>
                     <hr />
                     {usser ?
                         <button
