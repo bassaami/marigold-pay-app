@@ -1,6 +1,8 @@
 import React from 'react';
 import Navbar from "../Componentz/Navbar"
-import HeroCarous from '../Componentz/HeroCarous';
+// import HeroCarousel from '../Componentz/HeroCarousel';
+import { Outlet } from 'react-router';
+import FullFooter from '../Componentz/FullFooter';
 
 
 const HmeLayout = () => {
@@ -10,13 +12,16 @@ const HmeLayout = () => {
     return (
         <div>
             <header>
-                <nav> <Navbar></Navbar>  </nav>
-                <section>
-                    <HeroCarous></HeroCarous>
-                </section>
+                <nav> <Navbar></Navbar>  </nav>                
             </header>
 
-            
+            <main className="">
+<Outlet></Outlet>
+            </main>
+            <footer> 
+                <FullFooter></FullFooter>
+            </footer>
+
         </div>
     );
 };

@@ -24,7 +24,7 @@ let btnn = "px-6 py-2 bg-amber-800 text-white font-semibold rounded-lg shadow-md
                 {/* Logo / User Info */}
                 <div className="hidden md:flex text-2xl font-bold text-amber-600">Marigold Pay</div>
                 <div className="flex-shrink-0 text-black">
-                    {usser?.name}{usser?.email}
+                    {usser?.displayName}{usser?.email}
                 </div>
 
                 {/* Desktop Links (Hidden on mobile/tablet) */}
