@@ -48,7 +48,7 @@ const FullFooter = () => {
           <div>
             <h4 className="text-white font-semibold mb-6">Products</h4>
             <ul className="space-y-4 text-sm">
-              <li><Link to="/accounts" className="hover:text-yellow-500 transition">Personal Accounts</Link></li>
+              <li><Link to="/profile" className="hover:text-yellow-500 transition">Personal Accounts</Link></li>
               <li><Link to="/business" className="hover:text-yellow-500 transition">Business Pro</Link></li>
               <li><Link to="/savings" className="hover:text-yellow-500 transition">Savings Vaults</Link></li>
               <li><Link to="/crypto" className="hover:text-yellow-500 transition">Crypto Bridge</Link></li>
@@ -61,7 +61,7 @@ const FullFooter = () => {
             <ul className="space-y-4 text-sm">
               <li><Link to="/about" className="hover:text-yellow-500 transition">About Us</Link></li>
               <li><Link to="/careers" className="hover:text-yellow-500 transition">Careers</Link></li>
-              <li><Link to="/security" className="hover:text-yellow-500 transition">Security Center</Link></li>
+              <li><Link to="/security" className="hover:text-yellow-500 transition"> Security Center</Link></li>
               <li><Link to="/press" className="hover:text-yellow-500 transition">Press Kit</Link></li>
             </ul>
           </div>

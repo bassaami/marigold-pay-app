@@ -12,13 +12,14 @@ const HmeLayout = () => {
     return (
         <div>
             <header>
-                <nav> <Navbar></Navbar>  </nav>                
+                <nav> <Navbar></Navbar>  </nav>
             </header>
 
             <main className="">
-<Outlet></Outlet>
+                <Outlet></Outlet>
             </main>
-            <footer> 
+            
+            <footer>
                 <FullFooter></FullFooter>
             </footer>
 

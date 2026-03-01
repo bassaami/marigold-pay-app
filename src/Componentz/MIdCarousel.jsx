@@ -7,22 +7,22 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-const HeroCarousel = () => {
+const MIdCarousel = () => {
   const slides = [
     {
-      title: "Global Connectivity",
+      title: "Get 20% discount on WIFI bills payment",
       description: "Pay your internet bills from home and stay connected to the metaverse.",
       img: "https://www.bssnews.net/assets/news_photos/2022/04/04/image-54219-1649068760.jpg",
       bgColor: "bg-[#002B5B]"
     },
     {
-      title: "Powerful Energy",
+      title: "Now 200* point rewards on electricity bills payment",
       description: "Pay electricity bills at ease. It's going to be huge, believe me.",
       img: "https://www.dailysunshine.com.bd/wp-content/uploads/2021/08/NESCO-LOGO.jpg",
       bgColor: "bg-[#b90505]"
     },
     {
-      title: "Investing in Future",
+      title: "Pay Education bills and get 5% Cashback",
       description: "Pay education fees conveniently with our streamlined digital portal.",
       img: "https://www.thedailystar.net/sites/default/files/styles/big_1/public/images/2024/11/23/ctg-wasa.jpg",
       bgColor: "bg-[#008C45]"
@@ -43,7 +43,7 @@ const HeroCarousel = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className={`${slide.bgColor} h-full w-full flex flex-col md:flex-row items-center justify-center md:justify-around px-6 md:px-16 lg:px-24 py-10 text-white gap-8`}>
+            <div className={`${slide.bgColor} h-full w-full flex flex-col-reverse md:flex-row-reverse items-center justify-center md:justify-around px-6 md:px-16 lg:px-24 py-10 text-white gap-8`}>
               
               {/* Text Content */}
               <div className="max-w-xl text-center md:text-left order-2 md:order-1">
@@ -66,7 +66,7 @@ const HeroCarousel = () => {
                   <img 
                     src={slide.img} 
                     alt={slide.title} 
-                    className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-[2rem] object-cover border-4 border-white shadow-2xl transition-transform hover:rotate-2"
+                    className="relative w-full h-full md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-[2rem] object-cover border-4 border-white shadow-2xl transition-transform hover:rotate-2"
                   />
                 </div>
               </div>
@@ -85,4 +85,4 @@ const HeroCarousel = () => {
   );
 };
 
-export default HeroCarousel;
+export default MIdCarousel;
