@@ -15,7 +15,7 @@ const HmeLayout = () => {
                 <nav> <Navbar></Navbar>  </nav>
             </header>
 
-            <main className="">
+            <main className="mx-auto">
                 <Outlet></Outlet>
             </main>
             

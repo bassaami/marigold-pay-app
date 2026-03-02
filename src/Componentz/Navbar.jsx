@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import userIcon from "../assets/user.png"
 import { AuthContext } from '../ProViderr/AuthenPro';
+import BalanceButton from './BalanceButton';
 
 const Navbar = () => {
     const { usser, LogOutt } = use(AuthContext);
@@ -18,14 +19,17 @@ const Navbar = () => {
 
 let btnn = "px-6 py-2 bg-amber-800 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700  active:scale-95"
 
+
     return (
-        <nav className="relative bg-base-400 p-4">
+        <nav className="relative bg-base-400 p-4 border ">
+            <div className="md:hidden text-center text-2xl font-bold text-amber-600">Marigold Pay</div>
             <div className="flex items-center justify-between">
                 {/* Logo / User Info */}
+                <div className="flex gap-3">
                 <div className="hidden md:flex text-2xl font-bold text-amber-600">Marigold Pay</div>
-                <div className="flex-shrink-0 text-black">
-                    {usser?.displayName}{usser?.email}
-                </div>
+                <div className="flex-shrink-0 text-black border p-1">
+                    {usser.displayName ? usser.displayName : usser.email} 
+                </div></div>
 
                 {/* Desktop Links (Hidden on mobile/tablet) */}
                 <div className="navv text-amber-800 hidden md:flex gap-6">
@@ -36,6 +40,7 @@ let btnn = "px-6 py-2 bg-amber-800 text-white font-semibold rounded-lg shadow-md
 
                 {/* Right Side: Auth + Mobile Toggle */}
                 <div className="login-btnn flex items-center gap-5">
+                    <BalanceButton></BalanceButton>
                     <img
                         className='w-10 h-10 rounded-full object-cover'
                         src={`${usser ? usser.photoURL : userIcon}`}
