@@ -1,6 +1,17 @@
 import { useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 
+const paymentOptions = [
+  { id: 1, title: 'Education', path: '/pay/education', color: 'bg-indigo-50 text-indigo-600', icon: <path d="M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c0 2 2 3 6 3s6-1 6-3v-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/> },
+  { id: 2, title: 'Electricity', path: '/pay/electricity', color: 'bg-yellow-50 text-yellow-600', icon: <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/> },
+  { id: 3, title: 'Gas', path: '/pay/gas', color: 'bg-red-50 text-red-600', icon: <path d="M12 2c0 4.5-6 9-6 13a6 6 0 0012 0c0-4-6-8.5-6-13z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/> },
+  { id: 4, title: 'Water', path: '/pay/water', color: 'bg-blue-50 text-blue-600', icon: <path d="M12 22a7 7 0 007-7c0-2-1-3.9-3-5.5s-4-3.5-4-3.5-2 1.9-4 3.5S5 13 5 15a7 7 0 007 7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/> },
+  { id: 5, title: 'Internet', path: '/pay/internet', color: 'bg-cyan-50 text-cyan-600', icon: <path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.59 16.11a6 6 0 016.82 0M12 20h.01" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/> },
+  { id: 6, title: 'Govt Fee', path: '/pay/govt', color: 'bg-emerald-50 text-emerald-600', icon: <path d="M3 21h18M3 10h18M5 10v11M19 10v11M12 10v11M12 3L2 10h20L12 3z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/> },
+  { id: 7, title: 'Merchant Pay', path: '/pay/merchant', color: 'bg-pink-50 text-pink-600', icon: <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18m-11 4v4m4-4v4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/> },
+  { id: 8, title: 'More', path: '/services', color: 'bg-gray-100 text-gray-600', icon: <path d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/> },
+];
+
 const BillDetails = () => {
   const { id } = useParams();
   const allBills = useLoaderData();
@@ -55,9 +66,10 @@ const BillDetails = () => {
             />
             {/* Bill Type Overlay Icon */}
             <div className="absolute bottom-4 right-4 bg-amber-600 p-3 rounded-full text-white shadow-lg">
+                {paymentOptions.map((option) => (
               <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c0 2 2 3 6 3s6-1 6-3v-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+                { option.icon}
+              </svg>))}
             </div>
           </div>
 
