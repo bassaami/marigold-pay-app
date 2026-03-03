@@ -19,7 +19,7 @@ const BalanceButton = () => {
 
     const handleClick = () => {
         if (!usser) {
-            navigate('/login');
+            navigate('/authen/login');
             return;
         }
 

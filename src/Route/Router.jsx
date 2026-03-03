@@ -5,12 +5,15 @@ import RSignUP from "../Paggges/RSignUP";
 import SignIN from "../Paggges/SignIN";
 import MyProfile from "../Paggges/MyProfile";
 import Hooome from "../Paggges/Hooome";
+import PrivateRoute from "./PrivateRoute";
+import ErrLay from "../Layout/ErrLay";
 
 const router = createBrowserRouter(
     [
         {
             path: "/",
             Component: HmeLayout,
+            errorElement: <PrivateRoute><ErrLay></ErrLay></PrivateRoute>,
             children: [
                 {
                     path: "/",
@@ -18,7 +21,11 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/profile",
-                    element: <MyProfile></MyProfile>
+                    element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
+                },
+                {
+                    path: "/profile",
+                    element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
                 },
             ]
         },

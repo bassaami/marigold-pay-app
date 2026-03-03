@@ -28,7 +28,7 @@ let btnn = "px-6 py-2 bg-amber-800 text-white font-semibold rounded-lg shadow-md
                 <div className="flex gap-3">
                 <div className="hidden md:flex text-2xl font-bold text-amber-600">Marigold Pay</div>
                 <div className="flex-shrink-0 text-black border p-1">
-                    {usser.displayName ? usser.displayName : usser.email} 
+                    {usser?.displayName ? usser.displayName : usser?.email} 
                 </div></div>
 
                 {/* Desktop Links (Hidden on mobile/tablet) */}
