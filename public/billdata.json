@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "bill_type": "electricity",
+        "icon": "https://upload.wikimedia.org/wikipedia/en/thumb/2/22/DESCO_Logo.svg/1200px-DESCO_Logo.svg.png",
+        "organization": "DESCO",
+        "amount": 1890,
+        "due-date": "2025-03-22T06:57:58.110Z"
+    },
+    {
+        "id": 2,
+        "bill_type": "gas",
+        "icon": "https://upload.wikimedia.org/wikipedia/en/0/07/Titas_Gas_Logo.png",
+        "organization": "Titas Gas",
+        "amount": 1488,
+        "due-date": "2025-03-28T06:57:58.110Z"
+    },
+    {
+        "id": 3,
+        "bill_type": "water",
+        "icon": "https://upload.wikimedia.org/wikipedia/en/thumb/8/82/Dhaka_WASA_Logo.svg/1200px-Dhaka_WASA_Logo.svg.png",
+        "organization": "WASA",
+        "amount": 1668,
+        "due-date": "2025-03-28T06:57:58.110Z"
+    },
+    {
+        "id": 4,
+        "bill_type": "internet",
+        "icon": "https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Link3_Technologies_Logo.svg/1200px-Link3_Technologies_Logo.svg.png",
+        "organization": "Link3",
+        "amount": 1050,
+        "due-date": "2025-04-01T10:00:00.000Z"
+    },
+    {
+        "id": 5,
+        "bill_type": "electricity",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/4/4b/DPDC_Logo.png",
+        "organization": "DPDC",
+        "amount": 2450,
+        "due-date": "2025-03-25T08:30:00.000Z"
+    },
+    {
+        "id": 6,
+        "bill_type": "telephone",
+        "icon": "https://upload.wikimedia.org/wikipedia/en/3/3a/BTCL_Logo.png",
+        "organization": "BTCL",
+        "amount": 540,
+        "due-date": "2025-03-30T12:00:00.000Z"
+    }
+]
