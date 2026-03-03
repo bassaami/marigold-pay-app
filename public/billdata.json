@@ -2,7 +2,7 @@
     {
         "id": 1,
         "bill_type": "electricity",
-        "icon": "https://upload.wikimedia.org/wikipedia/en/thumb/2/22/DESCO_Logo.svg/1200px-DESCO_Logo.svg.png",
+        "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKMAAACUCAMAAADIzWmnAAAAt1BMVEX///8AWZ4AVZwASJZjg7MARpX1+fwLXaCvw9nC1OSnNCktYaLl7vXf6vIAPpIAUZo8cKkATJj09PSovtbr6+v16unNzM2mLyOkKh2cAADY2NjBwMCrqqqUkpKNjIyjIhKhGQCqPzbUpqLnzsy0s7OdnJyyVk/JjYnv3d3btbKvTUa/eXTX4exvi7iGoMOTrMt6lL1Eea+8bmkoaKVfi7m2Y12attLNl5RYVlZta2sQDg55eHgyMTGG6aEjAAAEUklEQVR4nO2Ye3fiLBCHgaxR0wsGI0bIxWhsvdRbtbZd3+//uV5ItGqC7fase+of85ycY4Rh8mNmgChCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA10rrpwV8Te/qNfYfrl0ie0yGP63hC/oP8ZVLbD12nCtP9GjcTfo/LeJTWhM/9v9Rom0DX1vYRTejduyXo/j5yK987nj6ZWLaPLKYGU3qJ26Gk7jttAsS7fnUNHKx01JblB47vzVpXLrEhLveWzddajKg+NhLr+s77bgg8YkaRxJ3o3tv14YnU3I69ZwGwdQq4hLsLneTpdhgYFn3vw4++s9dx2k7o4LEqsm1JtOxdjFxCx1UDXkyalzUimwabrWSzdZeqXmXDRSHrPTaseM4cUGivabYWjcNIzOJtUrVXc1PO5rrCqbTclU2CKkZwjtz8Y1WMbdw487QfxTERAVRSewV2p/ucdXkeTeDFaaLcnMNY7ecbaWxWbbV8cPaeEXo/PauzH6yrdfYdzLGz4+j/tEGPnPp7PzM6lWMTct4QdzyqDMa0YxSlWybYHxjopGXTT+JnR1t3/ed5OVxr3NJ3PNhRE1C1+Z2svxjjXPXnavFh8+gO5XEl8Tvqk3nQDvudPxnvcBX2DKU/54NNUe5TkjjjzXmcbwluOreG6B51bBhfzRJOp19wrPK7IxamWNDZX3QpKZyVAX5jTh+1CN2N/ZtmZNaYv3Xl3GyT/kkT/aCkk/rkVRN9Tj7Rj3Od+tare8v1vWeXlaZcbLfguoVfHM+kHYDG8Sg2o15XeNZvUhtSrCVubizMGnMSwaKgp9hosqy3Zl8vFTYyvNN2bUim7Pa1Mi0VuiZVVWqTfsjppUi6pyhq7x/o8+ZkkGlcn9aNn1HVWQ8Pj4N60SfUIahlWx+DarOmdN2SzUZzxlqWrbEWu5s7dk9MVqcnNfDxHf87uvp+22tYvSNd+f10io7drGpPOpVE6v5IeLNpdHkuIqHY78QxNz32jQQN3Lf9mZVeuzsk+3q71BR9J3Xf+X9IrTGcfflun8jDB+67eILxZXRGh9tONcJe+j02Mc3wfW9FAh5DHmIeapFNQku8n5PXfJwyxCT6pMxfXmZkZAXlzh8eD4oRDLkb4y9yzBAAy5+o8jjoZRMRFy1aN4RexPv2W0gvS0T73zLUcBRJNiWBxFKQxldWGLr+eTtO5Bii1KptaQ8ffMGKI1SjnjEB1l42FZdOnIKL3wXShoSAQoECplQGgMkIuFdWGLhH7JBkAr9RKVFxTIKdIg8D8kgGGT9PFD5DcLcOFKytwzxlA2Ymo0cpKqDeeGFk13438QLdd75QOjw/MfCLGrcQwPBoiw6oUBbvk9mpIzTAY88FspAqsCj0GMRD9LLaizA8pXB9ZphHOmsSam+CKYvhW5P5a6AtTGTMltGMrNQA4SU7Jx7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA7/A/l+RmSL8T0NcAAAAASUVORK5CYII=",
         "organization": "DESCO",
         "amount": 1890,
         "due-date": "2025-03-22T06:57:58.110Z"
@@ -10,7 +10,7 @@
     {
         "id": 2,
         "bill_type": "gas",
-        "icon": "https://upload.wikimedia.org/wikipedia/en/0/07/Titas_Gas_Logo.png",
+        "icon": "../src/assets/titasbrd.png",
         "organization": "Titas Gas",
         "amount": 1488,
         "due-date": "2025-03-28T06:57:58.110Z"
@@ -18,15 +18,15 @@
     {
         "id": 3,
         "bill_type": "water",
-        "icon": "https://upload.wikimedia.org/wikipedia/en/thumb/8/82/Dhaka_WASA_Logo.svg/1200px-Dhaka_WASA_Logo.svg.png",
+        "icon": "../src/assets/wasaad.jpg",
         "organization": "WASA",
         "amount": 1668,
-        "due-date": "2025-03-28T06:57:58.110Z"
+        "due-date": "2025-03-21T06:35:58.110Z"
     },
     {
         "id": 4,
         "bill_type": "internet",
-        "icon": "https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Link3_Technologies_Logo.svg/1200px-Link3_Technologies_Logo.svg.png",
+        "icon": "../src/assets/Link3d.png",
         "organization": "Link3",
         "amount": 1050,
         "due-date": "2025-04-01T10:00:00.000Z"
@@ -34,7 +34,7 @@
     {
         "id": 5,
         "bill_type": "electricity",
-        "icon": "https://upload.wikimedia.org/wikipedia/commons/4/4b/DPDC_Logo.png",
+        "icon": "../src/assets/dpdcad.png",
         "organization": "DPDC",
         "amount": 2450,
         "due-date": "2025-03-25T08:30:00.000Z"
@@ -42,7 +42,7 @@
     {
         "id": 6,
         "bill_type": "telephone",
-        "icon": "https://upload.wikimedia.org/wikipedia/en/3/3a/BTCL_Logo.png",
+        "icon": "../src/assets/btcllld.png",
         "organization": "BTCL",
         "amount": 540,
         "due-date": "2025-03-30T12:00:00.000Z"

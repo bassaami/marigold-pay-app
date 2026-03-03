@@ -7,6 +7,8 @@ import MyProfile from "../Paggges/MyProfile";
 import Hooome from "../Paggges/Hooome";
 import PrivateRoute from "./PrivateRoute";
 import ErrLay from "../Layout/ErrLay";
+import BillPage from "../Paggges/BillPage";
+import BillDetails from "../Paggges/BillDetails";
 
 const router = createBrowserRouter(
     [
@@ -17,11 +19,18 @@ const router = createBrowserRouter(
             children: [
                 {
                     path: "/",
-                    element: <Hooome></Hooome>
+                    element: <Hooome></Hooome>,
                 },
                 {
-                    path: "/profile",
-                    element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
+                    path: "/bills",
+                    element: <PrivateRoute><BillPage></BillPage> </PrivateRoute>,
+                    loader: () => fetch("/public/billdata.json"),
+
+                },
+                {
+                    path: "bill-details/:id",
+                    element: <PrivateRoute><BillDetails /></PrivateRoute> ,
+                    loader: () => fetch("/public/billdata.json"), // Or your API
                 },
                 {
                     path: "/profile",
@@ -43,8 +52,8 @@ const router = createBrowserRouter(
                 },
             ]
         },
-       
-        
+
+
     ]
 );
 
