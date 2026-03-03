@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from "react-router";
 import { useContext } from "react"; // Add this
 import { AuthContext } from "../ProViderr/AuthenPro";
 import { Link } from "react-router";
+import { Navigate } from "react-router";
 
 const paymentOptions = [
     { id: 1, title: 'Education', path: '/pay/education', color: 'bg-indigo-50 text-indigo-600', icon: <path d="M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c0 2 2 3 6 3s6-1 6-3v-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /> },
@@ -18,7 +19,7 @@ const paymentOptions = [
 const BillDetails = () => {
     const { id } = useParams();
     const allBills = useLoaderData();
-const { payBill } = useContext(AuthContext); // Get the function from context
+const { payBill, balance } = useContext(AuthContext); // Get the function from context
 
     // Find the specific bill based on the ID from the URL
     const bill = allBills.find((b) => b.id === parseInt(id));
@@ -27,12 +28,14 @@ const { payBill } = useContext(AuthContext); // Get the function from context
 
     const handlePayment = () => {
         if (!selectedMethod) return;
-        
+        if (balance < bill.amount) return alert("Insufficient balance");
+
         // 1. Call the context function to update global balance
-        payBill(bill.amount);
+        payBill(bill.id, bill.amount);
         
         // 2. Alert the user
         alert(`Payment of ৳${bill.amount} successful via ${selectedMethod}!`);
+        Navigate("/bills"); // Optional: redirect back to list
     };
 
     const paymentMethods = [

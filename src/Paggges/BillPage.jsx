@@ -1,9 +1,12 @@
+import { use } from "react";
 import { Link } from "react-router";
 import { Navigate } from "react-router";
 import { useLoaderData } from "react-router";
+import { AuthContext } from "../ProViderr/AuthenPro";
 
 const BillPage = () => {
     const bills = useLoaderData();
+    const { paidBillIds } = use(AuthContext); // Get the list of paid IDs
 
     return (
         <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
@@ -12,7 +15,7 @@ const BillPage = () => {
 
                 {/* Responsive Single Column Grid */}
                 <div className="grid grid-cols-1 gap-6">
-                    {bills.map((bill) => (
+                    {bills.map((bill) =>  (
                         <div
                             key={bill.id}
                             className="bg-white rounded-xl shadow-sm border border-gray-200 p-5 flex flex-col sm:flex-row items-center justify-between hover:shadow-md transition-shadow duration-300"
