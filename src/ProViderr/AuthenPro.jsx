@@ -9,6 +9,13 @@ const auth = getAuth(app);
 
 const AuthenPro = ({ children }) => {
 
+    // Inside your AuthenPro component
+    const [balance, setBalance] = useState(15000); // Set initial balance
+
+    const payBill = (amount) => {
+        setBalance((prev) => prev - amount);
+    };
+
     const [usser, setUser] = useState(null)
 
     const [loading, setLoading] = useState(true)
@@ -49,7 +56,7 @@ const AuthenPro = ({ children }) => {
 
     const authData = {
         usser, setUser, createUser, LogIn, LogOutt, loading, setLoading,
-        updateUser,
+        updateUser, balance, payBill,
     }
 
     return <AuthContext value={authData}>   {children} </AuthContext>

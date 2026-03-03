@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useLoaderData, useParams } from "react-router";
+import { useContext } from "react"; // Add this
+import { AuthContext } from "../ProViderr/AuthenPro";
+import { Link } from "react-router";
 
 const paymentOptions = [
     { id: 1, title: 'Education', path: '/pay/education', color: 'bg-indigo-50 text-indigo-600', icon: <path d="M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c0 2 2 3 6 3s6-1 6-3v-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /> },
@@ -15,11 +18,22 @@ const paymentOptions = [
 const BillDetails = () => {
     const { id } = useParams();
     const allBills = useLoaderData();
+const { payBill } = useContext(AuthContext); // Get the function from context
 
     // Find the specific bill based on the ID from the URL
     const bill = allBills.find((b) => b.id === parseInt(id));
 
     const [selectedMethod, setSelectedMethod] = useState(null);
+
+    const handlePayment = () => {
+        if (!selectedMethod) return;
+        
+        // 1. Call the context function to update global balance
+        payBill(bill.amount);
+        
+        // 2. Alert the user
+        alert(`Payment of ৳${bill.amount} successful via ${selectedMethod}!`);
+    };
 
     const paymentMethods = [
         { id: 'bkash', name: 'bKash', logo: 'https://www.logo.wine/a/logo/BKash/BKash-Logo.wine.svg' },
@@ -97,12 +111,12 @@ const BillDetails = () => {
                             </div>
                         </div>
 
-                        <button
-                            className="w-full py-4 bg-amber-600 text-white rounded-xl font-bold text-lg shadow-lg hover:bg-amber-700 transition-transform active:scale-95 uppercase tracking-wider"
-                            onClick={() => alert(`Payment of ৳${bill.amount} successful via ${selectedMethod}!`)}
+                        <Link   to="/bills"
+                            className="w-full py-4 bg-amber-600 text-white rounded-xl font-bold text-lg shadow-lg hover:bg-amber-700 active:scale-95 uppercase text-center "
+                            onClick={handlePayment}
                         >
                             Confirm & Pay Bill
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 {!selectedMethod && <p className="text-center mt-4 text-amber-700 animate-pulse font-medium">Please select a payment method above to proceed.</p>}

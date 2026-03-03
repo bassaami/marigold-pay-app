@@ -1,21 +1,21 @@
-import {
-    use,
-    useState,
-    // useEffect 
-} from 'react';
+import {    use,    useEffect,    useState,     } from 'react';
 import { useNavigate } from 'react-router';
 import { AuthContext } from '../ProViderr/AuthenPro';
 
 const BalanceButton = () => {
+
+    // 1. Get balance from Context instead of local state
+    const { usser, balance } = use(AuthContext); 
     const [displayValue, setDisplayValue] = useState('Check Balance');
-    const [balance, setBalance] = useState(10000);
     const [isShowing, setIsShowing] = useState(false);
     const navigate = useNavigate();
-    const { usser } = use(AuthContext);
-    // Function to simulate spending
-    const spendMoney = (amount) => {
-        setBalance((prev) => Math.max(0, prev - amount));
-    };
+
+    // 2. Keep displayValue in sync if balance changes while it's showing
+    useEffect(() => {
+        if (isShowing) {
+            setDisplayValue(`৳${balance.toLocaleString()}`);
+        }
+    }, [balance, isShowing]);
 
     const handleClick = () => {
         if (!usser) {
@@ -55,14 +55,7 @@ const BalanceButton = () => {
             </button>
 
             {/* Optional: Secret "Spend" button just to test your logic */}
-            {isShowing && (
-                <button
-                    onClick={() => spendMoney(500)}
-                    className="text-[10px] bg-red-100 text-red-600 px-2 py-1 rounded"
-                >
-                    Spend $500
-                </button>
-            )}
+            
         </div>
     );
 };
