@@ -14,7 +14,7 @@ const AuthenPro = ({ children }) => {
 
     const [paidBillIds, setPaidBillIds] = useState([]);
 
-    const payBill = (amount) => {
+    const payBill = (billId, amount) => {
         setBalance((prev) => prev - amount);
         // Add the bill ID to the paid list
         setPaidBillIds((prev) => [...prev, billId]);
@@ -60,7 +60,7 @@ const AuthenPro = ({ children }) => {
 
     const authData = {
         usser, setUser, createUser, LogIn, LogOutt, loading, setLoading,
-        updateUser, balance, payBill, paidBillIds,
+        updateUser, balance, payBill, paidBillIds,   
     }
 
     return <AuthContext value={authData}>   {children} </AuthContext>

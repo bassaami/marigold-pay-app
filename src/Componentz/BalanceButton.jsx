@@ -32,7 +32,7 @@ const BalanceButton = () => {
             setTimeout(() => {
                 setIsShowing(false);
                 setDisplayValue('Check Balance');
-            }, 5000);
+            }, 15000);
         }
     };
 

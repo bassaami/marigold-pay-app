@@ -24,13 +24,13 @@ const router = createBrowserRouter(
                 {
                     path: "/bills",
                     element: <PrivateRoute><BillPage></BillPage> </PrivateRoute>,
-                    loader: () => fetch("/public/billdata.json"),
+                    loader: () => fetch("/billdata.json"),
 
                 },
                 {
                     path: "bill-details/:id",
                     element: <PrivateRoute><BillDetails /></PrivateRoute> ,
-                    loader: () => fetch("/public/billdata.json"), // Or your API
+                    loader: () => fetch("/billdata.json"), // Or your API
                 },
                 {
                     path: "/profile",

@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData, useNavigate, useParams } from "react-router";
 import { useContext } from "react"; // Add this
 import { AuthContext } from "../ProViderr/AuthenPro";
-import { Link } from "react-router";
-import { Navigate } from "react-router";
+
 
 const paymentOptions = [
     { id: 1, title: 'Education', path: '/pay/education', color: 'bg-indigo-50 text-indigo-600', icon: <path d="M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c0 2 2 3 6 3s6-1 6-3v-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /> },
@@ -19,8 +18,8 @@ const paymentOptions = [
 const BillDetails = () => {
     const { id } = useParams();
     const allBills = useLoaderData();
-const { payBill, balance } = useContext(AuthContext); // Get the function from context
-
+    const { payBill, balance } = useContext(AuthContext); // Get the function from context
+    const navigate = useNavigate(); // 2. Initialize the hook
     // Find the specific bill based on the ID from the URL
     const bill = allBills.find((b) => b.id === parseInt(id));
 
@@ -32,10 +31,10 @@ const { payBill, balance } = useContext(AuthContext); // Get the function from c
 
         // 1. Call the context function to update global balance
         payBill(bill.id, bill.amount);
-        
+
         // 2. Alert the user
         alert(`Payment of ৳${bill.amount} successful via ${selectedMethod}!`);
-        Navigate("/bills"); // Optional: redirect back to list
+        navigate("/bills"); // Optional: redirect back to list        
     };
 
     const paymentMethods = [
@@ -114,12 +113,12 @@ const { payBill, balance } = useContext(AuthContext); // Get the function from c
                             </div>
                         </div>
 
-                        <Link   to="/bills"
+                        <div
                             className="w-full py-4 bg-amber-600 text-white rounded-xl font-bold text-lg shadow-lg hover:bg-amber-700 active:scale-95 uppercase text-center "
                             onClick={handlePayment}
                         >
                             Confirm & Pay Bill
-                        </Link>
+                        </div>
                     </div>
                 </div>
                 {!selectedMethod && <p className="text-center mt-4 text-amber-700 animate-pulse font-medium">Please select a payment method above to proceed.</p>}

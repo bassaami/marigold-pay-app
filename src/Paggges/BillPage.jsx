@@ -1,12 +1,14 @@
 import { use } from "react";
 import { Link } from "react-router";
-import { Navigate } from "react-router";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../ProViderr/AuthenPro";
+
 
 const BillPage = () => {
     const bills = useLoaderData();
     const { paidBillIds } = use(AuthContext); // Get the list of paid IDs
+
+    console.log(paidBillIds);
 
     return (
         <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
@@ -47,9 +49,7 @@ const BillPage = () => {
                                     ৳{bill.amount}
                                 </div>
                                 {/* // Inside BillPage.jsx map function: */}
-                                <Link
-                                    //   onClick={() => alert(`Redirecting to pay ${bill.organization}...`)
-                                    to={`/bill-details/${bill.id}`}
+                                <Link   to={`/bill-details/${bill.id}`}
                                     className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-lg transition-colors duration-200 shadow-sm active:scale-95"
                                 >
                                     Pay
