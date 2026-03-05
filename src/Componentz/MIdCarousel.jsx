@@ -6,6 +6,7 @@ import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import { Link } from 'react-router';
 
 const MIdCarousel = () => {
   const slides = [
@@ -32,7 +33,7 @@ const MIdCarousel = () => {
   const btnClass = "px-6 py-3 bg-amber-600 text-white font-bold rounded-lg shadow-md hover:bg-amber-700 active:scale-95 mt-6 transition-all w-full sm:w-max";
 
   return (
-    <div className="w-full h-[600px] md:h-[500px] overflow-hidden rounded-2xl">
+    <div className="w-full h-[500px] md:h-[400px] overflow-hidden rounded-2xl">
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         effect="fade"
@@ -50,12 +51,12 @@ const MIdCarousel = () => {
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight">
                   {slide.title}
                 </h1>
-                <p className="text-sm md:text-lg opacity-90 max-w-md mx-auto md:mx-0">
+                <p className="text-sm md:text-lg opacity-90 max-w-md mx-auto md:mx-0 my-5">
                   {slide.description}
                 </p>
-                <button className={btnClass}>
+                <Link to="/bills" className={btnClass}>
                   Pay Now
-                </button>
+                </Link  >
               </div>
 
               {/* Image Content */}
