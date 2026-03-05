@@ -10,7 +10,7 @@
     {
         "id": 2,
         "bill_type": "gas",
-        "icon": "../src/assets/titasbrd.png",
+        "icon": "/titasbrd.png",
         "organization": "Titas Gas",
         "amount": 1488,
         "due-date": "2025-03-28T06:57:58.110Z"
@@ -18,7 +18,7 @@
     {
         "id": 3,
         "bill_type": "water",
-        "icon": "../src/assets/wasaad.jpg",
+        "icon": "/wasaad.jpg",
         "organization": "WASA",
         "amount": 1668,
         "due-date": "2025-03-21T06:35:58.110Z"
@@ -26,7 +26,7 @@
     {
         "id": 4,
         "bill_type": "internet",
-        "icon": "../src/assets/Link3d.png",
+        "icon": "/Link3d.png",
         "organization": "Link3",
         "amount": 1050,
         "due-date": "2025-04-01T10:00:00.000Z"
@@ -34,7 +34,7 @@
     {
         "id": 5,
         "bill_type": "electricity",
-        "icon": "../src/assets/dpdcad.png",
+        "icon": "/dpdcad.png",
         "organization": "DPDC",
         "amount": 2450,
         "due-date": "2025-03-25T08:30:00.000Z"
@@ -42,7 +42,7 @@
     {
         "id": 6,
         "bill_type": "telephone",
-        "icon": "../src/assets/btcllld.png",
+        "icon": "/btcllld.png",
         "organization": "BTCL",
         "amount": 540,
         "due-date": "2025-03-30T12:00:00.000Z"

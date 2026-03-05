@@ -4,7 +4,7 @@ import { AuthContext } from '../ProViderr/AuthenPro'
 
 const RSignUP = () => {
 
-    let { createUser, setUser, updateUser } = use(AuthContext)
+    let { createUser, setUser, updateUser, googleLogin } = use(AuthContext)
     let [nameErr, setNameErr] = useState("")
     let navigate = useNavigate()
 
@@ -45,11 +45,26 @@ const RSignUP = () => {
         });
     }
 
-let card = "relative flex flex-col shadow-2xl rounded-2xl bg-base-100 w-full max-w-sm shrink-0"
-let cardBody = "flex flex-col p-6 gap-2"
-let fieldset = "flex flex-col space-y-2 border-none p-1 m-1"
-let label = "flex items-center justify-between text-xl font-medium text-gray-700 pt-2"
-let btnn = " py-2 bg-amber-800 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700  active:scale-95 mt-2"
+    // --- New Google Handler ---
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then((result) => {
+                setUser(result.user);
+                navigate("/");
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
+    };
+
+    let card = "relative flex flex-col shadow-2xl rounded-2xl bg-base-100 w-full max-w-sm shrink-0"
+    let cardBody = "flex flex-col p-6 gap-2"
+    let fieldset = "flex flex-col space-y-2 border-none p-1 m-1"
+    let label = "flex items-center justify-between text-xl font-medium text-gray-700 pt-2"
+    let btnn = " py-2 bg-amber-800 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700  active:scale-95 mt-2"
+    // Style for Google Button
+    let googleBtn = "py-2 bg-white border border-gray-300 text-gray-700 font-semibold rounded-lg shadow-sm hover:bg-gray-100 active:scale-95 mt-4 flex items-center justify-center gap-2";
+
 
     return (
         <div className='flex justify-center min-h-[60%] items-center'>
@@ -75,6 +90,16 @@ let btnn = " py-2 bg-amber-800 text-white font-semibold rounded-lg shadow-md hov
 
                         <button type='submit' className={btnn}>Sign Up</button>
 
+                        {/* --- Google Login Button --- */}
+                        <div className="divider text-sm text-gray-400 text-center my-2">OR</div>
+                        <button
+                            type="button"
+                            onClick={handleGoogleLogin}
+                            className={googleBtn}
+                        >
+                            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="G" className="w-5 h-5" />
+                            Continue with Google
+                        </button>
                         <p className="font-semibold text-center pt-4">Already Have an Account?
                             <Link className='hover:text-blue-700 text-amber-800' to="/authen/login"> Login</Link> </p>
                     </fieldset>

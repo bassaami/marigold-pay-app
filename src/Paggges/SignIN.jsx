@@ -1,11 +1,11 @@
-import React, { use, useState } from 'react';
+import React, { use, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../ProViderr/AuthenPro';
 
 const SignIN = () => {
     let [err, setErr] = useState("")
-
-    let { LogIn } = use(AuthContext)
+let emailRef = useRef(); // To get the email value for reset
+    let { LogIn, resetPassword } = use(AuthContext)
 
     let location = useLocation()
     // console.log(location);
@@ -29,6 +29,22 @@ const SignIN = () => {
                 setErr(errorCode)
             });
     }
+    // --- New Forget Password Handler ---
+    const handleForgetPassword = () => {
+        const email = emailRef.current.value;
+        if (!email) {
+            setErr("Please provide a valid email first.");
+            return;
+        }
+        
+        resetPassword(email)
+            .then(() => {
+                alert("Password reset email sent! Check your inbox.");
+            })
+            .catch((error) => {
+                setErr(error.message);
+            });
+    };
 
     let card = "relative flex flex-col shadow-2xl rounded-2xl bg-base-100 w-full max-w-sm shrink-0"
     let cardBody = "flex flex-col p-6 gap-2"
@@ -44,12 +60,25 @@ const SignIN = () => {
                     <fieldset className={fieldset}>
                         {/* email */}
                         <label className={label}>Email</label>
-                        <input name="email" type="email" className="input" placeholder="Email" />
+
+                        <input ref={emailRef} // <--- Make sure this is here!
+                         name="email" type="email" className="input" placeholder="Email" />
+                         
                         {/* password */}
                         <label className={label}>Password</label>
                         <input name="password" type="password" className="input" placeholder="Password" />
 
-                        <div><a className="link link-hover">Forgot password?</a></div>
+                        {/* Updated Forgot Password Link */}
+                        <div>
+                            <button 
+                                type="button" // Use button type="button" to prevent form submit
+                                onClick={handleForgetPassword} 
+                                className="hover:underline p-1 text-sm"
+                            >
+                                Forgot password?
+                            </button>
+                        </div>
+
                         {err && <p className="text-red-500"> {err}   </p>}
 
                         <button type='submit' className={btnn}>Login</button>
