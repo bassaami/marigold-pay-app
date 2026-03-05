@@ -6,6 +6,7 @@ const RSignUP = () => {
 
     let { createUser, setUser, updateUser, googleLogin } = use(AuthContext)
     let [nameErr, setNameErr] = useState("")
+    let [passErr, setPassErr] = useState(""); // Add this line
     let navigate = useNavigate()
 
     const handleRegister = (e) => {
@@ -17,12 +18,28 @@ const RSignUP = () => {
         let email = form.email.value
         let password = form.password.value
         // console.log({ name, photo, email, password });
+// Reset errors at the start of every submission
+    setNameErr("");
+    setPassErr("");
 
         if (name.length < 5) {
             setNameErr("Name should be more than 5 character")
             return
         } else { setNameErr("") }
-
+// Password Validation
+    if (password.length < 6) {
+        setPassErr("Password must be at least 6 characters long.");
+        return;
+    }
+    if (!/[A-Z]/.test(password)) {
+        setPassErr("Password must contain at least one uppercase letter.");
+        return;
+    }
+    if (!/[a-z]/.test(password)) {
+        setPassErr("Password must contain at least one lowercase letter.");
+        return;
+    }
+    // If it passes all checks, proceed to create user
         createUser(email, password).then((userCredential) => {
             // Signed up 
             const user = userCredential.user;
@@ -41,6 +58,7 @@ const RSignUP = () => {
             // const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorMessage);
+            setPassErr(error.message); // Optionally show Firebase errors here too
             // ..
         });
     }
@@ -87,6 +105,8 @@ const RSignUP = () => {
 
                         <label className={label}>Password</label>
                         <input name='password' type="password" className="input" placeholder="Password" />
+{/* Add the error message display here */}
+{passErr && <p className="text-red-500 text-sm mt-1">{passErr}</p>}
 
                         <button type='submit' className={btnn}>Sign Up</button>
 

@@ -26,30 +26,9 @@ Environment Variables: Secure Firebase configuration keys using environment vari
 🚩🚩update: All the updates will be declared here.  
 You need to implement forget password method, but skip email verification. 
 
-Main Requirements
-Readme.md: Include a README file with the project name, purpose, live URL, key features, and any npm packages you have used.
-
-Implement password validation
-For password validation, you need to follow the below criteria. Show a password error in the form, and don't Register for an invalid password
-Must have an Uppercase letter in the password 
-Must have a Lowercase letter in the password  
-Length must be at least 6 character 
-
 5. My Profile 
 
- This page will contain the User profile picture, Display Name and email. 
-
- Update Information Feature
-In my-profile route, there will be an update button on Clicking it.  Take the user to another route.
-Show the user a form with 2 input fields ( photo-URL  and Name ) 
-An Update Information button.
-
-
-
 6. Bills page
-This page will contain various bills such as - Electricity, Gas, Internet, Water, Credit 
-
-There would be a drop-down menu in the Bills Page where the bill-type can be selected, and then bills will be filtered according to the bill-type.
 
 7. Bill Details Page
  
