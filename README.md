@@ -6,7 +6,6 @@ Marigold Pay
 Purpose = 
 This is a Bill Management website that allows users to pay utility bills, make grocery payment and get metro and e-toll pass. Users can see the list of bills, such as electricity, gas, water, internet, etc. Those bills can be paid using their balance. They can also make donations and manage their account. 
 
-Ensure the Following things to get 100% mark
 
 Live URL = https://assign-9-marygold-pay.web.app/
 

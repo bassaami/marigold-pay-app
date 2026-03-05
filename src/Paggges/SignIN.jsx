@@ -32,18 +32,34 @@ let emailRef = useRef(); // To get the email value for reset
     // --- New Forget Password Handler ---
     const handleForgetPassword = () => {
         const email = emailRef.current.value;
+        // 1. Basic Validation
         if (!email) {
             setErr("Please provide a valid email first.");
             return;
         }
-        
-        resetPassword(email)
-            .then(() => {
-                alert("Password reset email sent! Check your inbox.");
-            })
-            .catch((error) => {
-                setErr(error.message);
-            });
+
+        // 2. Firebase Reset Call
+    resetPassword(email)
+        .then(() => {
+            // Optional: Logic to find the mail provider
+            const domain = email.split('@')[1];
+            let mailUrl = "https://mail.google.com"; // Default
+            
+            if (domain === "outlook.com" || domain === "hotmail.com") {
+                mailUrl = "https://outlook.live.com";
+            } else if (domain === "yahoo.com") {
+                mailUrl = "https://mail.yahoo.com";
+            }
+
+            // 3. User Feedback
+            alert(`Password reset email sent to ${email}!`);
+            
+            // 4. Open mail in a new tab (Optional UX boost)
+            window.open(mailUrl, "_blank");
+        })
+        .catch((error) => {
+            setErr(error.message);
+        });
     };
 
     let card = "relative flex flex-col shadow-2xl rounded-2xl bg-base-100 w-full max-w-sm shrink-0"
